@@ -1,0 +1,144 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 11;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+S_000001bd48916a60 .scope module, "red_tb" "red_tb" 2 6;
+ .timescale -9 -11;
+P_000001bd488e32f0 .param/l "N" 1 2 7, +C4<00000000000000000000000000000011>;
+P_000001bd488e3328 .param/l "period" 1 2 7, +C4<00000000000000000000000000010100>;
+v000001bd48968c00_0 .var "A", 2 0;
+v000001bd48968020_0 .var "B", 2 0;
+v000001bd48968980_0 .net "P0", 0 0, L_000001bd48973280;  1 drivers
+v000001bd489687a0_0 .net "P1", 0 0, L_000001bd48972db0;  1 drivers
+v000001bd489688e0_0 .net "P2", 0 0, L_000001bd4890ab70;  1 drivers
+v000001bd489691a0_0 .net "Q0", 0 0, L_000001bd48973910;  1 drivers
+v000001bd48969240_0 .net "Q1", 0 0, L_000001bd48973520;  1 drivers
+v000001bd48968480_0 .net "Q2", 0 0, L_000001bd48973590;  1 drivers
+L_000001bd48973c98 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000001bd489682a0_0 .net/2s *"_ivl_0", 31 0, L_000001bd48973c98;  1 drivers
+L_000001bd48973ce0 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v000001bd48968a20_0 .net/2s *"_ivl_4", 31 0, L_000001bd48973ce0;  1 drivers
+L_000001bd489678a0 .part L_000001bd48973c98, 0, 1;
+L_000001bd48968340 .part L_000001bd48973ce0, 0, 1;
+L_000001bd48967940 .part v000001bd48968c00_0, 2, 1;
+L_000001bd48968160 .part v000001bd48968020_0, 2, 1;
+L_000001bd489679e0 .part v000001bd48968c00_0, 1, 1;
+L_000001bd48968660 .part v000001bd48968020_0, 1, 1;
+L_000001bd48967ee0 .part v000001bd48968c00_0, 0, 1;
+L_000001bd489683e0 .part v000001bd48968020_0, 0, 1;
+S_000001bd48916bf0 .scope module, "C0" "celdaTipica" 2 23, 3 4 0, S_000001bd48916a60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p";
+    .port_info 1 /INPUT 1 "q";
+    .port_info 2 /INPUT 1 "Ai";
+    .port_info 3 /INPUT 1 "Bi";
+    .port_info 4 /OUTPUT 1 "P";
+    .port_info 5 /OUTPUT 1 "Q";
+L_000001bd489733d0 .functor XOR 1, L_000001bd48967ee0, L_000001bd489683e0, C4<0>, C4<0>;
+L_000001bd48973280 .functor OR 1, L_000001bd48972db0, L_000001bd489733d0, C4<0>, C4<0>;
+L_000001bd489732f0 .functor NOT 1, L_000001bd48967ee0, C4<0>, C4<0>, C4<0>;
+L_000001bd489730c0 .functor OR 1, L_000001bd489732f0, L_000001bd489683e0, C4<0>, C4<0>;
+L_000001bd48972e90 .functor OR 1, L_000001bd48972db0, L_000001bd489730c0, C4<0>, C4<0>;
+L_000001bd48973910 .functor AND 1, L_000001bd48973520, L_000001bd48972e90, C4<1>, C4<1>;
+v000001bd4890e080_0 .net "Ai", 0 0, L_000001bd48967ee0;  1 drivers
+v000001bd4890dae0_0 .net "Bi", 0 0, L_000001bd489683e0;  1 drivers
+v000001bd4890d680_0 .net "P", 0 0, L_000001bd48973280;  alias, 1 drivers
+v000001bd4890e120_0 .net "Q", 0 0, L_000001bd48973910;  alias, 1 drivers
+v000001bd4890d540_0 .net *"_ivl_4", 0 0, L_000001bd489732f0;  1 drivers
+v000001bd4890da40_0 .net "p", 0 0, L_000001bd48972db0;  alias, 1 drivers
+v000001bd4890d5e0_0 .net "q", 0 0, L_000001bd48973520;  alias, 1 drivers
+v000001bd4890db80_0 .net "s0", 0 0, L_000001bd489733d0;  1 drivers
+v000001bd4890dd60_0 .net "s1", 0 0, L_000001bd489730c0;  1 drivers
+v000001bd4890e260_0 .net "s2", 0 0, L_000001bd48972e90;  1 drivers
+S_000001bd488e2830 .scope module, "C1" "celdaTipica" 2 21, 3 4 0, S_000001bd48916a60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p";
+    .port_info 1 /INPUT 1 "q";
+    .port_info 2 /INPUT 1 "Ai";
+    .port_info 3 /INPUT 1 "Bi";
+    .port_info 4 /OUTPUT 1 "P";
+    .port_info 5 /OUTPUT 1 "Q";
+L_000001bd48973360 .functor XOR 1, L_000001bd489679e0, L_000001bd48968660, C4<0>, C4<0>;
+L_000001bd48972db0 .functor OR 1, L_000001bd4890ab70, L_000001bd48973360, C4<0>, C4<0>;
+L_000001bd48972e20 .functor NOT 1, L_000001bd489679e0, C4<0>, C4<0>, C4<0>;
+L_000001bd48973b40 .functor OR 1, L_000001bd48972e20, L_000001bd48968660, C4<0>, C4<0>;
+L_000001bd48973050 .functor OR 1, L_000001bd4890ab70, L_000001bd48973b40, C4<0>, C4<0>;
+L_000001bd48973520 .functor AND 1, L_000001bd48973590, L_000001bd48973050, C4<1>, C4<1>;
+v000001bd4890d720_0 .net "Ai", 0 0, L_000001bd489679e0;  1 drivers
+v000001bd4890dcc0_0 .net "Bi", 0 0, L_000001bd48968660;  1 drivers
+v000001bd4890d7c0_0 .net "P", 0 0, L_000001bd48972db0;  alias, 1 drivers
+v000001bd4890d860_0 .net "Q", 0 0, L_000001bd48973520;  alias, 1 drivers
+v000001bd48967e40_0 .net *"_ivl_4", 0 0, L_000001bd48972e20;  1 drivers
+v000001bd48968b60_0 .net "p", 0 0, L_000001bd4890ab70;  alias, 1 drivers
+v000001bd48968200_0 .net "q", 0 0, L_000001bd48973590;  alias, 1 drivers
+v000001bd489685c0_0 .net "s0", 0 0, L_000001bd48973360;  1 drivers
+v000001bd48968520_0 .net "s1", 0 0, L_000001bd48973b40;  1 drivers
+v000001bd48967b20_0 .net "s2", 0 0, L_000001bd48973050;  1 drivers
+S_000001bd488e29c0 .scope module, "C2" "celdaTipica" 2 19, 3 4 0, S_000001bd48916a60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "p";
+    .port_info 1 /INPUT 1 "q";
+    .port_info 2 /INPUT 1 "Ai";
+    .port_info 3 /INPUT 1 "Bi";
+    .port_info 4 /OUTPUT 1 "P";
+    .port_info 5 /OUTPUT 1 "Q";
+L_000001bd4890b040 .functor XOR 1, L_000001bd48967940, L_000001bd48968160, C4<0>, C4<0>;
+L_000001bd4890ab70 .functor OR 1, L_000001bd489678a0, L_000001bd4890b040, C4<0>, C4<0>;
+L_000001bd4890ada0 .functor NOT 1, L_000001bd48967940, C4<0>, C4<0>, C4<0>;
+L_000001bd489734b0 .functor OR 1, L_000001bd4890ada0, L_000001bd48968160, C4<0>, C4<0>;
+L_000001bd48972fe0 .functor OR 1, L_000001bd489678a0, L_000001bd489734b0, C4<0>, C4<0>;
+L_000001bd48973590 .functor AND 1, L_000001bd48968340, L_000001bd48972fe0, C4<1>, C4<1>;
+v000001bd48969380_0 .net "Ai", 0 0, L_000001bd48967940;  1 drivers
+v000001bd489680c0_0 .net "Bi", 0 0, L_000001bd48968160;  1 drivers
+v000001bd489692e0_0 .net "P", 0 0, L_000001bd4890ab70;  alias, 1 drivers
+v000001bd48968700_0 .net "Q", 0 0, L_000001bd48973590;  alias, 1 drivers
+v000001bd48968de0_0 .net *"_ivl_4", 0 0, L_000001bd4890ada0;  1 drivers
+v000001bd48967a80_0 .net "p", 0 0, L_000001bd489678a0;  1 drivers
+v000001bd48968d40_0 .net "q", 0 0, L_000001bd48968340;  1 drivers
+v000001bd48968840_0 .net "s0", 0 0, L_000001bd4890b040;  1 drivers
+v000001bd48968ac0_0 .net "s1", 0 0, L_000001bd489734b0;  1 drivers
+v000001bd48968f20_0 .net "s2", 0 0, L_000001bd48972fe0;  1 drivers
+    .scope S_000001bd48916a60;
+T_0 ;
+    %vpi_call 2 27 "$dumpfile", "red_tb.vcd" {0 0 0};
+    %vpi_call 2 28 "$dumpvars", 32'sb00000000000000000000000000000001, S_000001bd48916a60 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001bd48968c00_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001bd48968020_0, 4, 1;
+    %delay 2000, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001bd48968c00_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001bd48968020_0, 4, 1;
+    %delay 2000, 0;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001bd48968c00_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v000001bd48968020_0, 4, 1;
+    %delay 2000, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    ".\red_tb.v";
+    ".\celdaTipica.v";

@@ -4,7 +4,7 @@
 module celdaTipica (
     input p, q, Ai, Bi,
     output P, Q
-); // definir wires o regs dentro del paréntesis ????
+); // definir wires o regs dentro del parémetro
     wire s0, s1, s2;
 
     /* Función lógica para la variable P de estado correspondiente al MSB de
