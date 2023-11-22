@@ -7,8 +7,8 @@ module celdaTipica (
 ); // definir wires o regs dentro del parémetro
     wire s0, s1, s2;
 
-    /* Función lógica para la variable P de estado correspondiente al MSB de
-    la asignación de estado */
+    /* Función lógica para la variable P de estado 
+    correspondiente al MSB de la asignación de estado */
     assign s0 = Ai ^ Bi;
     assign P = p | s0;
 
