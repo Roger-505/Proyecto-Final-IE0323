@@ -1,12 +1,12 @@
 /* Test becnh para red iterativa analizando
    las palabras de izquierda a derecha */
 
-`timescale 1 ms /10 ps 
+`timescale 1 ns /10 ps z
 
 module red_tb (
     output Zout 
 );
-    localparam N = 3, period = 1;
+    localparam N = 3, period = 20; // justificar el period ????????????
     reg [N - 1:0] A;
     reg [N - 1:0] B;
 
