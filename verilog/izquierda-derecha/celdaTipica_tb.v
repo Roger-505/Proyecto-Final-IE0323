@@ -46,6 +46,7 @@ module celdaTipica_tb;
                     1 : estado = 2'b10; // *** Estado presente: b:10 ***
                     2 : estado = 2'b11; // *** Estado presente: c:11 ***
                 endcase 
+
                 Ai = 0; Bi = 0;     //AB = 00
                 #period;
                 Ai = 0; Bi = 1;     //AB = 01
@@ -56,31 +57,5 @@ module celdaTipica_tb;
                 #period;
             end 
             $finish;
-            /*
-            P = , Q = ;
-            Ai = 0, Bi = 0;               //AB = 00
-            #period;
-            Ai = 0, Bi = 1;               //AB = 01
-            #period;
-            Ai = 1, Bi = 0;               //AB = 10
-            #period
-            Ai = 1, Bi = 1;               //AB = 11
-            #period
-
-            // *** Estado presente: b ***
-            P = , Q = ;
-            Ai = 0, Bi = 0;               //AB = 00
-            #period;
-            Ai = 0, Bi = 1;               //AB = 01
-            #period;
-            Ai = 1, Bi = 0;               //AB = 10
-            #period
-            Ai = 1, Bi = 1;               //AB = 11
-            #period
-
-            // *** Estado presente: c ***
-            P = , Q = ;
-
-            */
         end
 endmodule 
