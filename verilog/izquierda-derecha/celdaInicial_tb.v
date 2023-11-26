@@ -10,9 +10,6 @@ module celdaInicial_tb;
        A y B */
     localparam period = 20;
 
-    /* variable utilizada para for de pruebas */
-    integer counter; 
-
     /* Declaración de bits de prueba correspondientes
        a las palabras A y B */
     reg An_1, Bn_1;
