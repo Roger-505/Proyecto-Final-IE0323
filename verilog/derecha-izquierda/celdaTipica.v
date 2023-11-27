@@ -1,11 +1,10 @@
 /* Definición de módulo para la celda típica de la 
    red iterativa analizando las palabras de derecha a izquierda
    modo conductual*/
-
-
-module celdaTipica (
+   
+module celdaTipicaDerIzq (
     input p, Ai, Bi,
-    output P
+    output reg P
 ); 
 
     //asignacion de estados a=1, b=0
@@ -24,7 +23,4 @@ module celdaTipica (
         else if (Ai < Bi && p == b) P=a; 
 
     end
-
-
-
 endmodule
