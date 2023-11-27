@@ -9,7 +9,7 @@ module redIterativaDerIzq
     input [N - 1:0] A, B,
     output wire Zout
 );
-    wire [N - 1:0] P; // modificar tamaño de vectores de próximo estado. P[0] y Q[0] no están siendo utilizados. 
+    wire [N - 2:0] P; // modificar tamaño de vectores de próximo estado. P[0] no está siendo utilizado. 
     // variables de estado en vectores por aparte, o meter de dos bits en un solo array para visualizar en gtkwave?????????
     genvar i;
 
