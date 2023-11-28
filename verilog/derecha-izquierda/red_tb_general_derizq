@@ -59,7 +59,7 @@ module redIterativaIzqDer_general_tb;
     
                 else 
                     $display("Falló red iterativa")            
-            
+                end
       /*      A = {N{1'b1}};   // A = 2**N - 1
             B = {N{1'b1}};   // B = 2**N - 1
             #period;
