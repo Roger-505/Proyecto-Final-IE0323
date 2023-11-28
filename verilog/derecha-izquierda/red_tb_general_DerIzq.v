@@ -17,6 +17,8 @@ module redIterativaIzqDer_general_tb;
     // índices utilizados para los for de las pruebas
     integer A_counter;
     integer B_counter;
+    integer counter; 
+
 
     // Salida Z de la red iterativa
     wire Zout; 
@@ -36,7 +38,29 @@ module redIterativaIzqDer_general_tb;
             $dumpvars(1, redIterativaIzqDer_general_tb);
 
             // Casos de esquina entre A y B
-            A = {N{1'b1}};   // A = 2**N - 1
+
+            for (counter = 0 ; counter < 1 ; counter = counter + 1)
+                begin
+                case (counter)
+                    0 : begin A = {N{1'b1}}; B ={N{1'b1}};end
+                    1 : begin A = {N{1'b1}}; B ={N{1'b0}};end
+                    2 : begin A = {N{1'b0}}; B ={N{1'b1}};end
+                    3 : begin A = {N{1'b0}}; B ={N{1'b0}};end
+
+                endcase 
+            
+                if (B >= A && Z==1)
+                
+                    $display("\n A = %b \n B = %b \n A =< B y Zout = %b. Prueba exitosa\n", A, B, Zout); 
+            
+                if else (B < A && Z==0)
+                
+                    $display("\n A = %b \n B = %b \n A > B y Zout = %b. Prueba exitosa\n", A, B, Zout);
+    
+                else 
+                    $display("Falló red iterativa")            
+            
+      /*      A = {N{1'b1}};   // A = 2**N - 1
             B = {N{1'b1}};   // B = 2**N - 1
             #period;
 
@@ -50,7 +74,11 @@ module redIterativaIzqDer_general_tb;
 
             A = {N{1'b0}};   // A = 0
             B = {N{1'b0}};   // B = 0
-            #period;
+            #period; */
+            
+            
+            
+            
             
             /* Pruebas en base a las posibles combinaciones binarias
                entre A y B. 
