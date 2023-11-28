@@ -44,7 +44,6 @@ module celdaTipicaDerIzq_tb;
                     0 : p = 1'b1; // *** Estado presente: a:1 ***
                     1 : p = 1'b0; // *** Estado presente: b:0 ***
                 endcase 
-
                 Ai = 0; Bi = 0;     //AB = 00
                 #period;
                 Ai = 0; Bi = 1;     //AB = 01
