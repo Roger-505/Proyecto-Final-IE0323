@@ -2,22 +2,53 @@
    red iterativa analizando las palabras de izquierda 
    a derecha */
 
-module celdaTipica (
+module celdaTipicaIzqDer (
     input p, q, Ai, Bi,
-    output P, Q
+    output reg P, Q
 ); 
-    /* wires para la construcción de las funciones lógicas
-    de P y Q */
-    wire s0, s1, s2; 
 
-    /* función lógica para la variable de estado P 
-    correspondiente al MSB de la asignación de estado */
-    assign s0 = Ai ^ Bi;
-    assign P = p | s0;
+    //asignacion de estados a:01, b:10, c:11
+    reg [1:0] a = 2'b01;
+    reg [1:0] b = 2'b10;
+    reg [1:0] c = 2'b11;
 
-    /* función lógica para la variable Q de estado correspondinete al LSB de 
-    la asignación de estados */
-    assign s1 = ~Ai | Bi; 
-    assign s2 = p | s1; 
-    assign Q = q & s2; 
+    always @(p or q or Ai or Bi) begin 
+        // always cada vez que p, q, Ai o Bi cambien se ejecuta lo siguiente segun corresponda
+        // Y asi cambiar el proximo estado P, segun el estado actual p, q, y A y B. 
+        
+        // estado presente a
+        if (p == a[1] && q == a[0]) begin  
+            if (Ai == Bi)
+            begin
+                // si los bits son iguales, próximo estado a 
+                P = a[1];
+                Q = a[0];
+            end 
+            else if (Ai > Bi)
+            begin
+                // si AB=10, próximo estado b
+                P = b[1];
+                Q = b[0];
+            end 
+            else if (Ai < Bi)
+            begin
+                // si AB=01, próximo estado c
+                P = c[1];
+                Q = c[0];
+            end 
+        end
+        // estado presente b
+        else if (p == b[1] && q == b[0]) begin 
+            // el próximo estado siempre es b con estado presente b
+            P = b[1];
+            Q = b[0];
+        end 
+
+        // estado presente c 
+        else if (p == c[1] && q == c[0]) begin 
+            // el próximo estado siempre es c con estado presente c
+            P = c[1];
+            Q = c[0];
+        end 
+    end
 endmodule

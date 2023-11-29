@@ -32,7 +32,7 @@ module celdaFinalDerIzq_tb;
         begin
             /* Archivo para la visualización de los
                resultados de las pruebas en gtkwave */
-            $dumpfile("celdaFinal_tb.vcd");
+            $dumpfile("celdaFinalDerIzq_tb.vcd");
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo celdaInicial_tb */

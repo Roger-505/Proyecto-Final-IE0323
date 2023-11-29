@@ -8,7 +8,7 @@ module redIterativaIzqDer_general_tb;
     /* tamaño de bits N de las palabras A y B,
        y tiempo period para cada combinación
        binaria entre A y B */
-    localparam N = 3, period = 20;
+    localparam N = 2, period = 20;
 
     // Declaración de las palabras A y B de N bits
     reg [N - 1:0] A;
@@ -36,55 +36,30 @@ module redIterativaIzqDer_general_tb;
             /* descargar en el archivo del dumpfile
                las variables en el módulo redIterativaIzqDer_tb */
             $dumpvars(1, redIterativaIzqDer_general_tb);
-
+            
             // Casos de esquina entre A y B
 
-            for (counter = 0 ; counter < 1 ; counter = counter + 1)
-                begin
+            for (counter = 0 ; counter < 4 ; counter = counter + 1)
+            begin
                 case (counter)
                     0 : begin A = {N{1'b1}}; B ={N{1'b1}};end
                     1 : begin A = {N{1'b1}}; B ={N{1'b0}};end
                     2 : begin A = {N{1'b0}}; B ={N{1'b1}};end
                     3 : begin A = {N{1'b0}}; B ={N{1'b0}};end
-
-                endcase 
-            
-                if (B >= A && Z==1)
+                endcase   
+                #period;  
+                if (A <= B  && Zout==1)
                 
                     $display("\n A = %b \n B = %b \n A =< B y Zout = %b. Prueba exitosa\n", A, B, Zout); 
             
-                if else (B < A && Z==0)
+                else if (A > B && Zout==0)
                 
                     $display("\n A = %b \n B = %b \n A > B y Zout = %b. Prueba exitosa\n", A, B, Zout);
-    
+
                 else 
-                    $display("Falló red iterativa")            
-                end
-      /*      A = {N{1'b1}};   // A = 2**N - 1
-            B = {N{1'b1}};   // B = 2**N - 1
-            #period;
+                    $display("Falló red iterativa %b %b %b", A, B, Zout);        
+            end
 
-            A = {N{1'b1}};   // A = 2**N - 1
-            B = {N{1'b0}};   // B = 0
-            #period;
-
-            A = {N{1'b0}};   // A = 0
-            B = {N{1'b1}};   // B = 2**N - 1
-            #period;
-
-            A = {N{1'b0}};   // A = 0
-            B = {N{1'b0}};   // B = 0
-            #period; */
-            
-            
-            
-            
-            
-            /* Pruebas en base a las posibles combinaciones binarias
-               entre A y B. 
-               *** Si A >  B => Zout = 0 *** 
-               *** Si A <= B => Zout = 1 *** 
-            */
             for (A_counter = 0; A_counter < 2**N ; A_counter = A_counter + 1)
             begin
                 for (B_counter = 0; B_counter < 2**N; B_counter = B_counter + 1)

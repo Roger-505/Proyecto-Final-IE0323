@@ -8,7 +8,7 @@ module redIterativaIzqDer_general_tb;
     /* tamaño de bits N de las palabras A y B,
        y tiempo period para cada combinación
        binaria entre A y B */
-    localparam N = 15, period = 20;
+    localparam N = 3, period = 20;
 
     // Declaración de las palabras A y B de N bits
     reg [N - 1:0] A;

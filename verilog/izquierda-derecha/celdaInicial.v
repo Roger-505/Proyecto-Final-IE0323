@@ -2,7 +2,7 @@
    red iterativa analizando las palabras de izquierda 
    a derecha */
 
-module celdaInicial (
+module celdaInicialIzqDer (
     input An_1, Bn_1,
     output Pinit, Qinit 
 );  
@@ -12,5 +12,5 @@ module celdaInicial (
 
     /* Evaluar celda típica en el estado inicial a: 01. Se realiza 
        una instanciación nombrada */
-    celdaTipica celdaInit (.p(pinit), .q(qinit), .Ai(An_1), .Bi(Bn_1), .P(Pinit), .Q(Qinit));
+    celdaTipicaIzqDer celdaInit (.p(pinit), .q(qinit), .Ai(An_1), .Bi(Bn_1), .P(Pinit), .Q(Qinit));
 endmodule

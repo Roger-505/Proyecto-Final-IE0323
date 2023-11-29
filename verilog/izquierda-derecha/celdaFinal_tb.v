@@ -26,7 +26,7 @@ module celdaFinal_tb;
 
     /* instanciación de celdaFinal como una descripción 
        nombrada para someterla a pruebas */
-    celdaFinal DUT (.pout(estado[1]), .qout(estado[0]), .Zout(Zout), .A0(A0), .B0(B0));
+    celdaFinalIzqDer DUT (.pout(estado[1]), .qout(estado[0]), .Zout(Zout), .A0(A0), .B0(B0));
 
     initial 
         begin

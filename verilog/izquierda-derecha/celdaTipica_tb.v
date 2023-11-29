@@ -25,7 +25,7 @@ module celdaTipica_tb;
 
     /* instanciación de celdaTípica para someterla
        a pruebas */
-    celdaTipica DUT (.p(estado[1]), .q(estado[0]), .P(prox_estado[1]), .Q(prox_estado[0]), .Ai(Ai), .Bi(Bi));
+    celdaTipicaIzqDer DUT (.p(estado[1]), .q(estado[0]), .P(prox_estado[1]), .Q(prox_estado[0]), .Ai(Ai), .Bi(Bi));
 
     initial 
         begin

@@ -11,8 +11,8 @@ module redIterativaIzqDer_tb;
     localparam N = 4, period = 20;
 
     // Declaración de las palabras A y B de N bits
-    reg [N - 1:0] A; 
-    reg [N - 1:0] B;
+    reg [N - 1:0] A = 0; 
+    reg [N - 1:0] B = 0;
 
     // Salida Z de la red iterativa
     wire Zout; 
@@ -38,7 +38,7 @@ module redIterativaIzqDer_tb;
                *** Si A >  B => Zout = 0 *** 
                *** Si A <= B => Zout = 1 *** 
             */
-            A = 4'b1010;   // A = 10
+            A = 4'b1111;   // A = 10
             B = 4'b0100;   // B = 4
             #period;
 

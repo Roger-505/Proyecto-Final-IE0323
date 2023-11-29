@@ -21,7 +21,7 @@ module celdaTipicaDerIzq_tb;
        y de estado presente p, para la 
        celda típica */
     reg p;            // p = estado
-    wire P;      // P = prox_estado
+    wire P;           // P = prox_estado
     /* instanciación de celdaTípica para someterla
        a pruebas */
     celdaTipicaDerIzq DUT (.p(p), .P(P), .Ai(Ai), .Bi(Bi));

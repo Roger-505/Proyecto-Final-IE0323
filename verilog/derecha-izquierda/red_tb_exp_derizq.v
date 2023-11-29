@@ -38,7 +38,7 @@ module redIterativaDerIzq_tb;
                *** Si A >  B => Zout = 0 *** 
                *** Si A <= B => Zout = 1 *** 
             */
-            A = 4'b1010;   // A = 10 !!!!!!!!!!! POR QUE DA A = A !!!!!!!!!!!!!!!!!!!!!
+            A = 4'b1010;   // A = 10 
             B = 4'b0100;   // B = 4
             #period;
 
