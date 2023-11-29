@@ -35,7 +35,7 @@ module redIterativaDerIzq_general_tb;
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo redIterativaIzqDer_tb */
-            $dumpvars(1, redIterativaIzqDer_general_tb);
+            $dumpvars(1, redIterativaDerIzq_general_tb);
             
             // Casos de esquina entre A y B
 
