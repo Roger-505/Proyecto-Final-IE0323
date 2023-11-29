@@ -1,6 +1,6 @@
 /* Testbench para el diseño de la red iterativa
    analizando las palabras de bits A y B de 
-   izquierda a derecha, con casos explícitos */
+   derecha a izquierda, con casos explícitos */
 
 `timescale 1 ns/10 ps // Definición de timescale 
 
@@ -31,8 +31,6 @@ module redIterativaDerIzq_tb;
                las variables en el módulo redIterativaIzqDer_tb */
             $dumpvars(1, redIterativaDerIzq_tb); 
 
-            // PALABRAS DE DISTINTOS TAMAÑOS
-
             /* Pruebas en base a algunas combinaciones binarias
                entre A y B. 
                *** Si A >  B => Zout = 0 *** 
@@ -52,7 +50,7 @@ module redIterativaDerIzq_tb;
 
             A = 4'b0000;   // A = 0
             B = 4'b0000;   // B = 0
-            #period; // OJO CON ESTO 
+            #period; 
             $finish;
         end
 endmodule 

@@ -4,7 +4,7 @@
 
 `timescale 1 ns/10 ps // Definición del timescale
 
-module celdaFinal_tb; 
+module celdaFinalIzqDer_tb; 
     /* Rango de tiempo period correspondiente
        a cada combinación binaria de las palabras 
        A y B */
@@ -36,7 +36,7 @@ module celdaFinal_tb;
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo celdaFinal_tb */
-            $dumpvars(1, celdaFinal_tb); 
+            $dumpvars(1, celdaFinalIzqDer_tb); 
 
             /* Pruebas en base a la tabla de 
                transición de estados */

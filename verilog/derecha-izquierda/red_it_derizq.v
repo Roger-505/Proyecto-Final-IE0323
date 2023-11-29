@@ -1,16 +1,12 @@
-/* Red iterativa 
-   -------------
-    Conductual */
-
-// redIterativa red1 #(.N(3)) (.A(3'b010), .B(3'b000), .Zout(salida));
+/* Definición de módulo para la red iterativa analizando 
+   las palabras de derecha a izquierda */
 
 module redIterativaDerIzq
 #( parameter N = 3 ) (
     input [N - 1:0] A, B,
     output wire Zout
 );
-    wire [N - 2:0] P; // modificar tamaño de vectores de próximo estado. P[0] no está siendo utilizado. 
-    // variables de estado en vectores por aparte, o meter de dos bits en un solo array para visualizar en gtkwave?????????
+    wire [N - 2:0] P; 
     genvar i;
 
     generate 
@@ -28,8 +24,7 @@ module redIterativaDerIzq
                 default : begin
                     celdaTipicaDerIzq celdaTyp (.p(P[i - 1]), .Ai(A[i]), .Bi(B[i]), .P(P[i]) );
                 end 
-            endcase
-        //celdaTipica celdas (.P(P[i]));        
+            endcase   
         end
     endgenerate
 endmodule

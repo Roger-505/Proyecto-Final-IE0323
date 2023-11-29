@@ -1,6 +1,6 @@
 /* Testbench para la celda inicial correspondiente al
    diseño de la red iterativa analizando las palabras 
-   de bits A y B de izquierda a derecha */
+   de bits A y B de derecha a izquierda */
 
 `timescale 1 ns/10 ps // Definición del timescale
 
@@ -32,7 +32,7 @@ module celdaFinalDerIzq_tb;
         begin
             /* Archivo para la visualización de los
                resultados de las pruebas en gtkwave */
-            $dumpfile("celdaFinalDerIzq_tb.vcd");
+            $dumpfile("celdaFinal_tb.vcd");
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo celdaInicial_tb */

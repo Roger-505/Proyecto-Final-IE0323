@@ -4,7 +4,7 @@
 
 `timescale 1 ns/10 ps // Definición del timescale
 
-module celdaInicial_tb; 
+module celdaInicialIzqDer_tb; 
     /* Rango de tiempo period correspondiente
        a cada combinación binaria de las palabras 
        A y B */
@@ -20,7 +20,7 @@ module celdaInicial_tb;
 
     /* instanciación de celdaInicial como una descripción 
        nombrada  para someterla a pruebas */
-    celdaInicial DUT (.Pinit(prox_estado[1]), .Qinit(prox_estado[0]), .An_1(An_1), .Bn_1(Bn_1));
+    celdaInicialIzqDer DUT (.Pinit(prox_estado[1]), .Qinit(prox_estado[0]), .An_1(An_1), .Bn_1(Bn_1));
 
     initial 
         begin
@@ -30,7 +30,7 @@ module celdaInicial_tb;
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo celdaInicial_tb */
-            $dumpvars(1, celdaInicial_tb); 
+            $dumpvars(1, celdaInicialIzqDer_tb); 
 
             /* Pruebas en base a la tabla de 
                transición de estados */

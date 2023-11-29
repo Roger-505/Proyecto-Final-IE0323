@@ -17,6 +17,7 @@ module redIterativaIzqDer_general_tb;
     // índices utilizados para los for de las pruebas
     integer A_counter;
     integer B_counter;
+    integer counter;
 
     // Salida Z de la red iterativa
     wire Zout; 
@@ -36,21 +37,22 @@ module redIterativaIzqDer_general_tb;
             $dumpvars(1, redIterativaIzqDer_general_tb);
 
             // Casos de esquina entre A y B
-            A = {N{1'b1}};   // A = 2**N - 1
-            B = {N{1'b1}};   // B = 2**N - 1
-            #period;
-
-            A = {N{1'b1}};   // A = 2**N - 1
-            B = {N{1'b0}};   // B = 0
-            #period;
-
-            A = {N{1'b0}};   // A = 0
-            B = {N{1'b1}};   // B = 2**N - 1
-            #period;
-
-            A = {N{1'b0}};   // A = 0
-            B = {N{1'b0}};   // B = 0
-            #period;
+            for (counter = 0 ; counter < 4 ; counter = counter + 1)
+            begin
+                case (counter)
+                    0 : begin A = {N{1'b1}}; B ={N{1'b1}};end
+                    1 : begin A = {N{1'b1}}; B ={N{1'b0}};end
+                    2 : begin A = {N{1'b0}}; B ={N{1'b1}};end
+                    3 : begin A = {N{1'b0}}; B ={N{1'b0}};end
+                endcase   
+                #period;  
+                if (A <= B  && Zout==1)
+                    $display("\n A = %b \n B = %b \n A =< B y Zout = %b. Prueba exitosa\n", A, B, Zout);
+                else if (A > B && Zout==0)
+                    $display("\n A = %b \n B = %b \n A > B y Zout = %b. Prueba exitosa\n", A, B, Zout);
+                else 
+                    $display("\n A = %b \n B = %b \n A <= B y Zout = %b. Prueba fallida\n", A, B, Zout);        
+            end
             
             /* Pruebas en base a las posibles combinaciones binarias
                entre A y B. 
@@ -61,40 +63,25 @@ module redIterativaIzqDer_general_tb;
             begin
                 for (B_counter = 0; B_counter < 2**N; B_counter = B_counter + 1)
                 begin 
-                    /* 
                     // A > B y Zout = 0
                     if (A > B && Zout == 0)
-                    begin
                         $display("\n A = %b \n B = %b \n A > B y Zout = %b. Prueba exitosa\n", A, B, Zout); 
-                    end 
                     // A <= B y Zout = 1
                     else if (A <= B && Zout == 1)
-                    begin
                         $display("\n A = %b \n B = %b \n A <= B y Zout = %b. Prueba exitosa\n", A, B, Zout); 
-                    end 
                     // Prueba fallida
                     else 
-                    begin
                         $display("\n A = %b \n B = %b \n A <= B y Zout = %b. Prueba fallida\n", A, B, Zout); 
-                    end 
-                    */
                     B = B + 1;
                     /* Al llegar a la última iteración del loop, no realizar #period
                        para evitar pruebas innecesarias al visualizar las formas de onda
                        en gtkwave
                     */
-                    if (B_counter != 2**N - 1)
-                    begin
-                        #period;
-                    end 
+                    if (B_counter != 2**N - 1) #period;
                 end 
                 A = A + 1; 
-                if (A_counter != 2**N - 1)
-                begin
-                    #period;
-                end 
+                if (A_counter != 2**N - 1) #period;
             end 
-
             $finish;
         end
 endmodule 

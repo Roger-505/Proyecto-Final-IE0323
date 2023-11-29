@@ -4,7 +4,7 @@
 
 `timescale 1 ns/10 ps // Definición del timescale
 
-module celdaTipica_tb; 
+module celdaTipicaIzqDer_tb; 
     /* Rango de tiempo period correspondiente
        a cada combinación binaria de las palabras 
        A y B */
@@ -23,8 +23,8 @@ module celdaTipica_tb;
     reg [1:0] estado;            // p = estado[1], q = estado[0] 
     wire [1:0] prox_estado;      // P = prox_estado[1], Q = prox_estado[0] 
 
-    /* instanciación de celdaTípica para someterla
-       a pruebas */
+    /* instanciación de celdaTípicaIzqDer como descripción nombrada
+       para someterla a pruebas */
     celdaTipicaIzqDer DUT (.p(estado[1]), .q(estado[0]), .P(prox_estado[1]), .Q(prox_estado[0]), .Ai(Ai), .Bi(Bi));
 
     initial 
@@ -35,7 +35,7 @@ module celdaTipica_tb;
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo celdaTipica_tb */
-            $dumpvars(1, celdaTipica_tb); 
+            $dumpvars(1, celdaTipicaIzqDer_tb); 
 
             /* Pruebas en base a la tabla de 
                transición de estados */

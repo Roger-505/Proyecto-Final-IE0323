@@ -30,7 +30,7 @@ module celdaTipicaDerIzq_tb;
         begin
             /* Archivo para la visualización de los
                resultados de las pruebas en gtkwave */
-            $dumpfile("celdaTipicaDerIzq_tb.vcd");
+            $dumpfile("celdaTipica_tb.vcd");
 
             /* descargar en el archivo del dumpfile
                las variables en el módulo celdaTipica_tb */

@@ -31,8 +31,6 @@ module redIterativaIzqDer_tb;
                las variables en el módulo redIterativaIzqDer_tb */
             $dumpvars(1, redIterativaIzqDer_tb); 
 
-            // PALABRAS DE DISTINTOS TAMAÑOS
-
             /* Pruebas en base a algunas combinaciones binarias
                entre A y B. 
                *** Si A >  B => Zout = 0 *** 
@@ -52,7 +50,7 @@ module redIterativaIzqDer_tb;
 
             A = 4'b0000;   // A = 0
             B = 4'b0000;   // B = 0
-            #period; // OJO CON ESTO
+            #period; 
             $finish;
         end
 endmodule 
